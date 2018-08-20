@@ -1,9 +1,9 @@
-let webpack = require("webpack");
-let webpackMerge = require("webpack-merge");
-let MiniCssExtractPlugin = require("mini-css-extract-plugin");
-let commonConfig = require("./webpack.common.js");
-let helpers = require("./helpers");
-let targetUrl = require("./target.js");
+var webpack = require("webpack");
+var webpackMerge = require("webpack-merge");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var commonConfig = require("./webpack.common.js");
+var helpers = require("./helpers");
+var targetUrl = require("./target.js");
 
 const ENV = process.env.NODE_ENV = process.env.ENV = "dev";
 
