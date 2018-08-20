@@ -1,7 +1,7 @@
-let webpack = require("webpack");
-let HtmlWebpackPlugin = require("html-webpack-plugin");
-let MiniCssExtractPlugin = require("mini-css-extract-plugin");
-let helpers = require("./helpers");
+var webpack = require("webpack");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
+var MiniCssExtractPlugin = require("mini-css-extract-plugin");
+var helpers = require("./helpers");
 
 module.exports = {
 	entry: {
