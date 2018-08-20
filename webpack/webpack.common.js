@@ -1,7 +1,7 @@
-var webpack = require("webpack");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var helpers = require("./helpers");
+let webpack = require("webpack");
+let HtmlWebpackPlugin = require("html-webpack-plugin");
+let MiniCssExtractPlugin = require("mini-css-extract-plugin");
+let helpers = require("./helpers");
 
 module.exports = {
 	entry: {
@@ -27,7 +27,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loader: ExtractTextPlugin.extract({ fallbackLoader: "style-loader", loader: "css-loader?minimize=true" })
+				loader: [MiniCssExtractPlugin.loader, "css-loader"]
 			},
 			{
 				test: /\.ts$/,
@@ -37,9 +37,16 @@ module.exports = {
 	},
 
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({
-			name: ["app", "vendor", "polyfills"]
-		}),
+
+		new webpack.ContextReplacementPlugin(
+			// The (\\|\/) piece accounts for path separators in *nix and Windows
+			// For Angular 5, see also https://github.com/angular/angular/issues/20357#issuecomment-343683491
+			/\@angular(\\|\/)core(\\|\/)esm5/,
+			helpers.root("src"), // location of your src
+			{
+				// your Angular Async Route paths relative to this root directory
+			}
+		),
 
 		new webpack.ProvidePlugin({
 			$: "jquery",
@@ -48,10 +55,12 @@ module.exports = {
 			Popper: ['popper.js', 'default']
 		}),
 
+		new webpack.ContextReplacementPlugin(/@angular(\\|\/)core(\\|\/)/, helpers.root("src")),
+
 		new HtmlWebpackPlugin({
 			inject: "head",
 			filename: helpers.root("public_html") + "/index.html",
-			template: helpers.root("webpack") + "/index.html"
+			template: helpers.root("webpack") + "/index.ejs"
 		})
 	]
 };
