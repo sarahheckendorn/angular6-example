@@ -1,11 +1,10 @@
 {
-  "name": "angular5-example",
+  "name": "angular6-example",
   "version": "3.0.0",
   "license": "Apache-2.0",
   "author": {
-    "name": "Dylan McDonald",
-    "email": "dylan@deepdivedylan.io",
-    "url": "https://www.deepdivedylan.io/"
+    "name": "Sarah Heckendorn",
+    "email": "sheckendorn@cnm.edu"
   },
   "scripts": {
     "build": "rimraf public_html/dist && tsc && webpack --config webpack/webpack.live.js --progress --profile --bail",
@@ -13,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/deepdivedylan/angular5-example.git"
+    "url": "https://github.com/sarahheckendorn/angular6-example.git"
   },
   "dependencies": {
     "@angular/common": "^5.0.0",
