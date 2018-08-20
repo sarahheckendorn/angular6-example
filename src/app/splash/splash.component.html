@@ -1,4 +1,7 @@
-<h2>Splash Component</h2>
+<h4>Splash Component</h4>
+<p>this is to test the route</p>
+
+
 <table class="table table-bordered table-responsive">
 	<tr>
 		<th>User Id</th>
@@ -7,9 +10,9 @@
 		<th>Phone</th>
 	</tr>
 	<tr *ngFor="let user of users">
-		<td>{{ user.id }}</td>
-		<td>{{ user.name }}</td>
-		<td><a [href]="'mailto:' + user.email">{{ user.email }}</a></td>
-		<td>{{ user.phone }}</td>
+		<td>{{user.id}}</td>
+		<td>{{user.name}}</td>
+		<td><a [href]="'mailto:' + user.email">{{user.email}}</a></td>
+		<td>{{user.phone}}</td>
 	</tr>
-</table>
+</table>>
